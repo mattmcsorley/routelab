@@ -3,11 +3,14 @@
 
 #include "node.h"
 
+#define INT_MAX 21474783
+
 class LinkState: public Node {
     private:
         // Anything you need in addition to Node members
 
     public:
+        
         LinkState(unsigned, SimulationContext* , double, double);
         LinkState(const LinkState &);
         LinkState & operator=(const LinkState &);
@@ -19,9 +22,12 @@ class LinkState: public Node {
         void TimeOut();
         Node* GetNextHop(Node* destination);
         Table* GetRoutingTable();
+       
+        
         ostream & Print(ostream & os) const;
 
         // Anything else
+        Node* GetMatchingNode(unsigned n); 
 };
 
 inline ostream & operator<<(ostream & os, const LinkState & n) {

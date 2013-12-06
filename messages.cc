@@ -3,6 +3,8 @@
 RoutingMessage::RoutingMessage()
 {}
 
+
+
 RoutingMessage::RoutingMessage(const RoutingMessage &rhs) {
     *this = rhs;
 }
@@ -21,9 +23,27 @@ ostream &RoutingMessage::Print(ostream &os) const
 #endif
 
 #if defined(LINKSTATE)
+RoutingMessage::RoutingMessage(int a, int src, int dest, int lat) {
+    link_age = a;
+    src_node = src;
+    dest_node = dest;
+    new_latency = lat;
+}
+
 ostream &RoutingMessage::Print(ostream &os) const
 {
     os << "LinkState RoutingMessage()";
+    /*
+        ┌─┐ --─┐
+        │▒│ /▒/
+        │▒│/▒/
+        │▒ /▒/─┬─┐
+        │▒│▒|▒│▒│
+        ┌┴─┴─┐-┘─┘
+        │▒┌──┘▒▒▒│
+        └┐▒▒▒▒▒▒┌┘
+        └┐▒▒▒▒┌┘
+    */
     return os;
 }
 #endif

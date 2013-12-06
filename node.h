@@ -17,7 +17,7 @@ using namespace std;
 
 class Node {
     protected:
-        unsigned number;
+        
         SimulationContext    *context;
         double   bw;
         double   lat;
@@ -53,7 +53,7 @@ class Node {
         virtual Node *GetNextHop(Node *destination);
         virtual Table *GetRoutingTable();
         virtual ostream & Print(ostream &os) const;
-
+        unsigned number;
 };
 
 Node* createNode(unsigned, SimulationContext*, double, double);

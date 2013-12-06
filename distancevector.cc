@@ -33,10 +33,29 @@ void DistanceVector::TimeOut() {
 }
 
 Node* DistanceVector::GetNextHop(Node *destination) { 
+    
+    /*  
+        Here we need to find out what the next hop will be based on the table
+        Shortest distance to destination and continue to pass destination to that node  
+        
+        deque<this> *this::GetNeighbors();
+        
+        We are given the table within this node.  That means we will have to check
+        against the table and see the distance from the current node to the requested
+        destination node. If that distance is 
+        
+    */
     return NULL;
 }
 
 Table* DistanceVector::GetRoutingTable() {
+    /*
+        So every node has its own table with distances to neighbors
+        and estimates to all other nodes.
+        
+        check if its table already exits
+    */
+    
     return NULL;
 }
 
