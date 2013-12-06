@@ -12,11 +12,21 @@ struct RoutingMessage {
 
     ostream & Print(ostream &os) const;
 
-    // Anything else you need
+    
 
     #if defined(LINKSTATE)
+        RoutingMessage(int a, int src, int dest, int lat);
+        
+        int link_age;
+        int src_node;
+        int dest_node;
+        int new_latency;
     #endif
     #if defined(DISTANCEVECTOR)
+        RoutingMessage(int s, map <int, TopoLink> v);
+        
+        int sendingNode;
+        map <int, TopoLink> vector;
     #endif
 };
 

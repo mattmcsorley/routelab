@@ -27,7 +27,17 @@ ostream & Table::Print(ostream &os) const
 ostream & Table::Print(ostream &os) const
 {
   os << "LinkState Table()";
+  /*
+        Here is where we will print out the final table i.e. topo ^('')^ <<('') 
+  */
+  
   return os;
+}
+
+Table::Table() {
+    topo.clear();
+    hopMap.clear();
+    hopMapNeedsChanging = true;
 }
 #endif
 
@@ -36,5 +46,12 @@ ostream & Table::Print(ostream &os) const
 {
   os << "DistanceVector Table()";
   return os;
+}
+
+Table::Table() {
+    topo.clear();
+    distanceVector.clear();
+    neighborLinks.clear();
+    otherDistanceVectors.clear();
 }
 #endif
