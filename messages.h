@@ -23,10 +23,12 @@ struct RoutingMessage {
         int new_latency;
     #endif
     #if defined(DISTANCEVECTOR)
+
         RoutingMessage(int s, map <int, TopoLink> v);
         
         int sendingNode;
         map <int, TopoLink> vector;
+
     #endif
 };
 

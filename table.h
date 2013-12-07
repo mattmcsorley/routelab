@@ -7,7 +7,9 @@
 using namespace std;
 
 struct TopoLink {
+
     TopoLink(): cost(-1), age(0), visited(false) {}
+
 
     TopoLink(const TopoLink & rhs) {
         *this = rhs;
@@ -22,6 +24,7 @@ struct TopoLink {
 
     int cost;
     int age;
+
     bool visited;
 };
 
@@ -38,6 +41,7 @@ class Table {
         map < int, map < int, TopoLink > > topo; //aka costMap
 
 
+
         ostream & Print(ostream &os) const;
 
         // Anything else you need
@@ -51,6 +55,7 @@ class Table {
             */
             
             bool hopMapNeedsChanging;
+
         #endif
 
         #if defined(DISTANCEVECTOR)
@@ -66,10 +71,9 @@ class Table {
             
             map <int, TopoLink> neighborLinks;
             
-            
             // Topo (up above) is used to keep track of other nodes' distance vectors
             
-            //map <int, map < int, int > > otherDistanceVectors;
+            map <int, int> hopMap;
         #endif
 };
 

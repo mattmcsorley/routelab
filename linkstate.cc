@@ -161,6 +161,7 @@ Node* LinkState::GetNextHop(Node *destination) {
             queue.erase(smallest);
             visited.insert(smallest); 
 
+
             //Find the neighbors for the node previously inserted
             neighbors = topo[smallest];
             for(itr = neighbors.begin() ; itr != neighbors.end() ; itr++)
@@ -182,7 +183,7 @@ Node* LinkState::GetNextHop(Node *destination) {
                     {
                         dist[v] = altDist;
                         previous[v] = smallest;
-                        
+
                         if( visited.count(v) < 1)
                         {
                             queue.insert(v);
@@ -238,15 +239,6 @@ Table* LinkState::GetRoutingTable() {
     
     return temp;
 }
-
-
-Node * LinkState::GetMatchingNode(unsigned n) {
-    return context->FindMatchingNode(new Node(n, NULL, 0,0));
-    //return NULL;
-}
-
-
-
 
 ostream & LinkState::Print(ostream &os) const { 
     Node::Print(os);

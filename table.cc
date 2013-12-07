@@ -1,8 +1,6 @@
 #include "table.h"
 
-Table::Table() {
-    topo.clear();
-}
+
 
 Table::Table(const Table & rhs) {
     *this = rhs;
@@ -16,6 +14,10 @@ Table & Table::operator=(const Table & rhs) {
 }
 
 #if defined(GENERIC)
+
+Table::Table() {
+    topo.clear();
+}
 ostream & Table::Print(ostream &os) const
 {
   os << "Generic Table()";
@@ -30,6 +32,7 @@ ostream & Table::Print(ostream &os) const
   /*
         Here is where we will print out the final table i.e. topo ^('')^ <<('') 
   */
+
   
   return os;
 }
@@ -38,6 +41,7 @@ Table::Table() {
     topo.clear();
     hopMap.clear();
     hopMapNeedsChanging = true;
+
 }
 #endif
 
@@ -52,6 +56,6 @@ Table::Table() {
     topo.clear();
     distanceVector.clear();
     neighborLinks.clear();
-    otherDistanceVectors.clear();
+    hopMap.clear();
 }
 #endif

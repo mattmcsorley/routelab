@@ -1,10 +1,5 @@
 #include "messages.h"
 
-RoutingMessage::RoutingMessage()
-{}
-
-
-
 RoutingMessage::RoutingMessage(const RoutingMessage &rhs) {
     *this = rhs;
 }
@@ -15,6 +10,8 @@ RoutingMessage & RoutingMessage::operator=(const RoutingMessage & rhs) {
 }
 
 #if defined(GENERIC)
+RoutingMessage::RoutingMessage()
+{}
 ostream &RoutingMessage::Print(ostream &os) const
 {
     os << "Generic RoutingMessage()";
@@ -33,13 +30,24 @@ RoutingMessage::RoutingMessage(int a, int src, int dest, int lat) {
 ostream &RoutingMessage::Print(ostream &os) const
 {
     os << "LinkState RoutingMessage()";
+    /*
+        ┌─┐ --─┐
+        │▒│ /▒/
+        │▒│/▒/
+        │▒ /▒/─┬─┐
+        │▒│▒|▒│▒│
+        ┌┴─┴─┐-┘─┘
+        │▒┌──┘▒▒▒│
+        └┐▒▒▒▒▒▒┌┘
+        └┐▒▒▒▒┌┘
+    */
     return os;
 }
 #endif
 
 #if defined(DISTANCEVECTOR)
 
-RoutingMessage(int s, map <int, TopoLink> v) {
+RoutingMessage::RoutingMessage(int s, map <int, TopoLink> v) {
     sendingNode = s;
     vector = v;
 }

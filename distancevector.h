@@ -22,6 +22,8 @@ class DistanceVector: public Node {
         ostream & Print(ostream & os) const;
 
         // Anything else
+        
+        bool updateDistanceVector();
 };
 
 inline ostream & operator<<(ostream & os, const DistanceVector & n) {
